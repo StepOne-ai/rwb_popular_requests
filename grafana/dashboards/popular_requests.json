@@ -1,0 +1,48 @@
+{
+  "title": "Popular Requests",
+  "uid": "popular-requests",
+  "schemaVersion": 36,
+  "refresh": "5s",
+  "panels": [
+    {
+      "id": 1,
+      "title": "Events processed/sec",
+      "type": "timeseries",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+      "targets": [
+        {
+          "expr": "rate(popular_requests_events_processed_total[1m])",
+          "legendFormat": "processed"
+        },
+        {
+          "expr": "rate(popular_requests_events_dropped_total[1m])",
+          "legendFormat": "dropped"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "GET /top RPS",
+      "type": "timeseries",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+      "targets": [
+        {
+          "expr": "rate(popular_requests_top_requests_total[1m])",
+          "legendFormat": "rps"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Stop-list size",
+      "type": "stat",
+      "gridPos": {"h": 4, "w": 6, "x": 0, "y": 8},
+      "targets": [
+        {
+          "expr": "popular_requests_stoplist_size",
+          "legendFormat": "words"
+        }
+      ]
+    }
+  ]
+}
