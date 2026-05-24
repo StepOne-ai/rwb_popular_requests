@@ -183,3 +183,5 @@ make loadtest
 Grafana
 
 ![Grafana](image-1.png)
+
+## Кондратов Степан @StephenMarkman ;)
