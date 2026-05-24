@@ -46,7 +46,7 @@ func BenchmarkGetCachedTop(b *testing.B) {
 	now := time.Now()
 
 	// наполняем данными
-	for i := 0; i < 1000; i++ {
+	for i := range 1000 {
 		s.Increment(fmt.Sprintf("query-%d", i), fmt.Sprintf("user-%d", i), now)
 	}
 	s.recompute()
@@ -64,7 +64,7 @@ func BenchmarkRecompute(b *testing.B) {
 	s := NewStore(5, time.Minute)
 	now := time.Now()
 
-	for i := 0; i < 10000; i++ {
+	for i := range 10000 {
 		s.Increment(fmt.Sprintf("query-%d", i%500), fmt.Sprintf("user-%d", i), now)
 	}
 
